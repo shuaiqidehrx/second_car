@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+这是返回的界面
+{{ query }}
+{{ page }}
+{{ paginator }}
+
+{% for foo in page %}
+    {{ foo.object.color }}
+
+{% endfor %}
+
+{#{for i in  page }#}
+{##}
+{#{{ i.object.name }}#}
+
+
+</body>
+</html>

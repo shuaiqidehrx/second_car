@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Address</title>
+    <style type="text/css">
+        body{
+            margin: 0px auto;
+        }
+        span{
+            display: -moz-inline-box;
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="bodydiv">
+{#{% if username %}#}
+{#    <h3>当前用户:{{ username }}</h3>#}
+{{ info }}
+    <form method="post">
+        {% csrf_token %}
+        <p><span>新增收货地址</span>电话号码、手机号选填一项, 其余均为必填项</p>
+        <p><span>所在地区</span><input type="text" name=""/></p>
+        <p><span>详细地址</span><input type="text" name="address"/></p>
+        <p><span>邮政编码</span><input type="text" name="post_num"/></p>
+        <p><span>收货人姓名</span><input type="text" name=" recieve"/></p>
+        <p><span>手机号码</span><input type="text" name="phone_num"/></p>
+        <p><span>电话号码</span><input type="text" name=""/></p>
+        <P><span><input type="checkbox" name=""/></span>设置为默认收货地址</P>
+        <P><span></span><input type="submit" value="提交"/></P>
+    </form>
+{#    {% if addresss %}#}
+{#        <p>已保存了{% addressslength %}条地址，还能保存{% x %}条地址</p>#}
+        <div>
+            <table>
+                <tr>
+                    <th>收货人</th>
+                    <th>所在地区</th>
+                    <th>详细地址</th>
+                    <th>邮编</th>
+                    <th>电话/手机</th>
+                    <th>操作</th>
+                    <th></th>
+                </tr>
+                {% for address in addresss %}
+                    <tr>
+{#                        <td>{% address属性 %}</td>#}
+{#                        <td>{% address属性 %}</td>#}
+{#                        <td>{% address属性 %}</td>#}
+{#                        <td>{% address属性 %}</td>#}
+{#                        <td>{% address属性 %}</td>#}
+                        <td>
+                            <a href="#">修改</a> |
+                            <a href="#">删除</a>
+                        </td>
+                        <td>
+                            {% if address %}
+                                <span>默认地址</span>
+                            {% else %}
+                                <a href="#">设为默认</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+{#    {% else %}#}
+        <h3>您尚未添加地址</h3>
+{#    {% endif %}#}
+{#{% else %}#}
+    <h2>您尚未登陆，请<a href="#">登陆</a></h2>
+{#{% endif %}#}
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单</title>
+    <link rel="stylesheet" href="order/订单.css">
+    <style>
+   
+    </style>
+    <script src="jquery-1.7.2.js"></script>
+    <script>
+    $(function(){
+        $(".div3").mousemove(function(){
+            $(this).children("ul").stop().slideToggle()
+        
+        })
+
+        
+        $("span").click(function(){
+            $(this).parent().hide()
+        })
+
+
+
+    })
+    </script>
+
+</head>             
+<body >
+<div>
+    <div class="div1">
+        <!-- 第一块 首行 -->
+        <div class="div3">
+            <a href="#" >登录</a>
+        </div>
+        <div class="div3">
+                <a href="#" >注册</a>
+            </div>
+        <div class="div2">
+            <div class="div3"><a href="https://www.taobao.com"> 首页</a></div>
+            <div class="div3"><a href="https://www.taobao.com"> 产品详情</a></div>           
+            <div class="div3"><a href="#" >我的购物筐</a></div>
+            <div class="div3" id="favorite"><a href="#" >收藏夹</a>
+                <ul>
+                    <li><a href="#">我中意的车车</a></li>
+
+                </ul>
+            </div>   
+        </div>      
+    </div>
+    <br>
+    <div style="margin-left: 100px;display: inline-block;width: 1200px">
+    <!-- 第二块 logo及其他行 -->
+        <div >
+            <div style="display: inline-block;">
+                <a href="https://www.taobao.com"><img src="timgguazi.jpeg" alt="logo"></a>
+            </div>
+            <div class="logo行">查看购物车</div>
+        </div>
+    </div>
+
+    <div class="manAddr">
+        <!-- 地址标签块 -->
+        确认收货地址
+        <span><a href="#">管理收货地址</a></span>
+    </div>
+    <form method="post" action="{% url 'ordeform:commit' %}">
+        {% csrf_token %}
+    <div class="address">
+        <!-- 地址栏 -->
+        <ul >
+            <li><input type="checkbox" name="carstylr_ids" value="cartyle_id">address information1</li>
+            <li><input type="checkbox">address information1</li>
+            <li><input type="checkbox">address information1</li>
+            <li><input type="checkbox">address information1</li>
+            <li><input type="checkbox">address information1</li>
+            <li><input type="checkbox">address information1</li>
+            <br>
+            <li style="font-size: 15px"><a href="#">使用其他地址收货</a></li>
+        </ul>  
+    </div>
+    </form>
+    <div class="buy">
+        确认订单：
+        <table style="width: 1200px;float: right;">
+            <tr style="text-align: center">
+                <td>店铺宝贝</td>
+                <td>商品属性</td>
+                <td>单价</td>
+                <td>数量</td>
+                <td>优惠方式</td>
+                <td>小计</td>
+            </tr>
+            <tr style="text-align: center">
+                <td><img src="car.jpg" style="height: 150px;"></td>
+                <!-- <td>商品图片</td> -->
+                <td>没啥属性</td>
+                <td>from...</td>
+                <td>from...</td>
+                <td>from...</td>
+                <td>from...</td>
+            </tr>
+    
+        </table>
+        <span>金额合计：</span>
+        <br>
+        <input class="sure" type="button" value="确认订单" >
+    </div>
+    <!-- <div class="sure">
+        <input type="button" value="确认订单">
+    </div> -->
+
+
+
+
+
+    <div class="ad"> 
+        <!-- 广告块 -->
+        <img src="渣渣辉.jpeg"><span>X</span>
+    </div>
+</div>
+</body>
+</html>

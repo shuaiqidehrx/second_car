@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <style>
+        *{ margin: 0; 
+            padding: 0; 
+            list-style: none;
+
+        }
+        ul,ol{
+             list-style: none;
+            }
+        div.zong{
+            width: 1905px;
+            height: 875px;
+            background: wheat;
+            
+        }
+        .zong ul li{
+            float: right;
+        }
+        div.body{
+            width: 100%;
+            height: 60%;
+            background-color: rgb(181, 225, 241);
+        }
+        div.foot{
+            width: 100%;
+            height: 32%;
+            background-color: rgb(235, 222, 206) ;
+        }
+        div.biaoti{
+            width: 25%;
+            height: 8%;
+            font: bold  60px '华文彩云';
+            color: sandybrown;
+            border: 1px black ;
+            margin: 1px;
+            padding: 1px;
+            background: silver ;
+        }
+        div.kuang{
+            width: 100%;
+            height: 100%;
+            background: rgb(181, 225, 241) url(登录/7777.png) no-repeat center 0px ;
+            text-align: center;
+        } 
+
+        div.guang{
+            position: fixed;
+            top:83.5%;
+            right: 15px;
+        }
+        .foot ul li{
+            float: left;
+        }
+        span.x{
+            position: absolute;
+            right: 5px;
+            cursor: pointer;
+        }
+        a{ 
+            color: #666; 
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: #f80;
+        }
+    </style>
+    <script src="c:\Users\has\Desktop\JQ\jquery-1.7.2.js"></script>
+    <script>
+        $(function(){
+            $('span').click(function(){
+                $(this).parent().hide();
+            })
+        })
+    </script>
+</head>
+<body>            
+    
+
+    <div class="zong">
+        <ul>
+            <li><a href="#">首页</a></li>
+        </ul>
+        <div class="biaoti">花生二手车|登录
+        </div>
+        
+        
+        <div style="font-size:20px; "><b>&nbsp;&nbsp;&nbsp;&nbsp;www.huashengershouche.com</b></div>
+        <div class="body">   
+
+            <style type="text/css">
+            #demo {
+                width: 100px;
+                height: 100px;
+                position:absolute;
+                border-radius:50px;
+            }
+        </style>
+    
+        <script type="text/javascript">
+            window.onload = function(){
+                var demo = document.getElementById('demo');
+                var sx = sy = 10;
+                var x = y = 0;
+    
+                function move(){
+                    if(document.documentElement.clientWidth - demo.offsetWidth-10 < x || x < 0){
+                        sx = -sx;
+                    }
+    
+                    if(document.documentElement.clientHeight - demo.offsetHeight-10 < y || y < 0){
+                        sy = -sy;
+                    }
+    
+                    x = demo.offsetLeft + sx;
+                    y = demo.offsetTop + sy;
+    
+                    demo.style.left = x + 'px';
+                    demo.style.top = y + 'px';
+                }
+    
+                var timer = setInterval(move, 100);
+    
+                demo.onmouseover = function(){
+                    clearInterval(timer);
+                }
+    
+                demo.onmouseout = function(){
+                    timer = setInterval(move, 100);
+                }
+            }
+        </script>
+    
+        <img src="登录/555.png" id="demo" />
+
+
+            <div style="font-size:30px; color:rgb(255, 0, 43);font-family:'华文新魏'"><marquee behavior="scroll" direction="left" scrollamount="6" scrolldelay="0" loop="-1" height="50">
+               欢迎来到花生二手车网，买卖二手车你怕啥？怕好车贱卖，怕买到坏车，花生车好车不和坏车一起卖，每年拒绝一千万辆坏车，好车卖好价，买卖二手车，花生网！
+            </marquee> 
+            </div>
+
+            <div class="kuang">
+                {{ info }}
+                 <form action="" method="post"><br><br>
+                     {% csrf_token %}
+                    <b style="font-family:'华文细黑体'">用户名</b><input type="text" name="username" style="width:180px;height:30px;" placeholder="&nbsp;&nbsp;请输入您的用户名"><br><br><br>
+                    <b style="font-family:'华文细黑体'">密&nbsp;码</b><input type="password" name="password" style="width:180px;height:30px;" placeholder="&nbsp;&nbsp;请输入您的密码"><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id='add' name="remeber"><label for='add'>记住密码</label><br><br><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登录" style="width:100px;height:40px;"><a href="#">&nbsp;忘记密码？</a>
+                </form><br>
+               
+                <a href="#"><img src="" alt=""></a><a href="#">qq账号登录</a>&nbsp;&nbsp;
+                <a href="#"><img src="登录/wb.png" alt=""></a><a href="#">微博账号登录</a><br><br>
+                若无账号请<a href="#">注册</a><br>
+            </div>
+        </div>
+
+        <div class="foot">
+            <ul style="font-size:20px; color:black;font-family:'华文新魏'">
+                <li ><a href="#">关于花生 &nbsp;&nbsp;</a></li>
+                <li ><a href="#">联系我们 &nbsp;&nbsp;</a></li>
+                <li ><a href="#">交易指南 &nbsp;&nbsp;</a></li>
+                <li ><a href="#">商家服务 &nbsp;&nbsp;</a></li>
+                <li ><a href="#">答惑解疑</a></li>
+            </ul><br><br>
+            <b style="font-size:20px; color:black;font-family:'华文新魏'">
+                免费咨询电话：800-820-8820<br>
+                服务监督热线：10086
+            </b><br>
+            <img src="登录/huasheng.png" alt="" style="width:180px;height:180px"><b style="font-size:15px; color:black;font-family:'华文行楷'">扫码加入我们</b>
+           <div class="guang"><img src="登录/paoche.png" alt=""><span class="x">X</span>
+
+           </div>
+            
+        
+        </div>
+
+
+    </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

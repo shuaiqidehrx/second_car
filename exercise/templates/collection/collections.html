@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收藏夹</title>
+</head>
+<body>
+    <p align="center">你好用户 <a href="#">返回首页</a> <a href="#">修改资料</a> <a href="#">查看收藏</a> <a href="#">登出</a></p>
+    <hr />
+    <div style="font-size: x-large;text-align:center">这里是logo，反正不归我管</div>
+    <table align="center">
+        <tr>
+            <th>序号</th>
+            <th>车名</th>
+            <th>原车主</th>
+            <th>品牌</th>
+            <th>型号</th>
+            <th>价位</th>
+            <th>操作</th>
+        </tr>
+		{% for data in list %}
+			<tr>
+				<td>{{ data.id }}</td>
+				<td><a href="#">{{ data.name }}</a></td>
+				<td><a href="#">{{ data.exowner }}</a></td>
+				<td>{{ data.brand }}</td>
+				<td>{{ data.type }}</td>
+				<td>{{ data.price }}</td>
+				<td><a href="#">删除</a>/<a href="#">购买</a></td>
+			</tr>
+		{% endfor %}
+    </table>
+	{% if pagecount %}
+		{% if page == 1 %}
+			&lt;&lt;&nbsp;
+		{% else %}
+			<a href='#'>&lt;&lt;</a>
+		{% endif %}
+		{% for i in pagecount %}
+			{% if i == page %}
+				{{ i }}&nbsp;
+			{% else %}
+				<a href='#'>{{ i }}</a>&nbsp;
+			{% endif %}
+		{% endfor %}
+		{% if page == pagecount[-1] %}
+			&gt;&gt;
+		{% else %}
+			<a href='#'>&gt;&gt;</a>
+		{% endif %}
+	{% endif %}
+	<form action='' method='get'>
+	<label>跳转至：<input type='text' name='jump_to'></label>
+	<input type='submit' value='确认'>
+</body>
+</html>
